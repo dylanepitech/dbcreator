@@ -65,4 +65,12 @@ try:
     print(GREEN + BOLD+ 'Connexion avec succès !' + RESET)
 except mysql.connector.Error as err:
     print('erreur de connexion')
-    exit(1)
+    if os.path.exists('.bd.txt'):
+        os.remove('.bd.txt')
+        creator()
+    else:
+        print('probleme')
+        exit(1)
+
+
+
